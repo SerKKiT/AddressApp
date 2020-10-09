@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -24,7 +25,6 @@ public class MainApp extends Application {
      * The data as an observable list of Persons.
      */
     private ObservableList<Person> personData = FXCollections.observableArrayList();
-
     /**
      * Constructor
      */
@@ -53,7 +53,8 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("AddressApp");
-
+        //устанавливаем иконку
+        this.primaryStage.getIcons().add(new Image("file:resources/images/icon.png"));
         initRootLayout();
 
         showPersonOverview();
@@ -128,7 +129,6 @@ public class MainApp extends Application {
             PersonEditDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setPerson(person);
-
             //Отображаем диалоговое окно и ждём, пока пользователь ег оне закроет
             dialogStage.showAndWait();
 
